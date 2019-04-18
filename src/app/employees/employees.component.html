@@ -1,0 +1,24 @@
+<h2>Employee Details</h2>
+<input type=button value="Add Employee" (click)="add()">
+<table border=3>
+  <tr>
+    <th>Employee Id</th>
+    <th>Employee Name</th>
+    <th>Employee Salary</th>
+    <th>Employee Department</th>
+  </tr>
+  <tr>
+    <td><input type=text [(ngModel)]="eid" /></td>
+    <td><input type=text [(ngModel)]="name" /></td>
+    <td><input type=text [(ngModel)]="salary" /></td>
+    <td><input type=text [(ngModel)]="dept" /></td>
+  </tr>
+  <tr *ngFor="let e of employees">
+    <td>{{e.eid}}</td>
+    <td>{{e.name | titlecase }}</td>
+    <td>{{e.salary | currency:'CAD':'symbol':4.2-2:'fr'}}</td>
+    <td>{{e.dept}}</td>
+    <td><input type=button value="Update" (click)="update()"></td>
+    <td><input type=button value="Delete" (click)="delete()"></td>
+  </tr>
+  </table>
